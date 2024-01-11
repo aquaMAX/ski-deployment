@@ -41,4 +41,7 @@ sudo openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout /etc/ssl/priva
 sudo systemctl restart httpd
 
 echo "Docker related component deployed"
+echo "Now will run docker-compose up -d to start the application"
 
+docker compose up -d
+echo "Application API deployed - https://$(ifconfig eth1 | awk '/inet/{print $2}'):18443/docs"
