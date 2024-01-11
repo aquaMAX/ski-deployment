@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  app:
+    image: 'poongzy/skiapi'
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:18000:80' # Public HTTP Port
+
+    # Uncomment the next line if you uncomment anything in the section
+    # environment:
+      # Uncomment this if you want to change env
