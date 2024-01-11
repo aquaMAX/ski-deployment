@@ -35,7 +35,7 @@ cp -f ./secure_proxy.conf /etc/httpd/conf.d/secure_proxy.conf
 cp -f ./httpd.conf /etc/httpd/conf/httpd.conf
 mv -f /etc/httpd/conf.d/ssl.conf /etc/httpd/conf.d/ssl.conf.bak
 # setup selfsigned certificate
-mkdir -p /etc/pki/private
+mkdir -p /etc/ssl/private
 cp -f ./apache-selfsigned.key /etc/ssl/private/apache-selfsigned.key
 cp -f ./apache-selfsigned.crt /etc/ssl/certs/apache-selfsigned.crt
 chmod 400 /etc/ssl/private/apache-selfsigned.key
