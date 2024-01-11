@@ -43,3 +43,4 @@ chmod 444 /etc/ssl/certs/apache-selfsigned.crt
 sudo systemctl restart httpd
 
 echo "Docker related component deployed"
+
