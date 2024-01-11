@@ -1,0 +1,40 @@
+[ policy ]
+commonName              = supplied
+stateOrProvinceName     = supplied
+countryName             = supplied
+emailAddress            = supplied
+organizationName        = supplied
+organizationalUnitName  = supplied
+
+[ req ]
+default_bits        = 4096
+distinguished_name  = req_distinguished_name
+prompt				= no
+string_mask         = utf8only
+default_md          = sha256
+x509_extensions     = v3_ca
+req_extensions		= v3_req
+
+[ req_distinguished_name ]
+countryName                     = MY
+stateOrProvinceName             = SELANGOR
+localityName                    = PetalingJaya
+organizationName              = appm
+organizationalUnitName          = appm
+commonName                      = appm
+emailAddress                    = support@secureki.com
+
+[ v3_ca ]
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer
+basicConstraints = critical, CA:true
+keyUsage = critical, digitalSignature
+
+[ v3_req ]
+basicConstraints       = CA:false
+extendedKeyUsage       = serverAuth
+subjectAltName         = @sans
+
+[ sans ]
+DNS.0 = localhost
+DNS.1 = appm

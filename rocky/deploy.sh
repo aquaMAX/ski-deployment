@@ -36,10 +36,7 @@ cp -f ./httpd.conf /etc/httpd/conf/httpd.conf
 mv -f /etc/httpd/conf.d/ssl.conf /etc/httpd/conf.d/ssl.conf.bak
 # setup selfsigned certificate
 mkdir -p /etc/ssl/private
-cp -f ./apache-selfsigned.key /etc/ssl/private/apache-selfsigned.key
-cp -f ./apache-selfsigned.crt /etc/ssl/certs/apache-selfsigned.crt
-chmod 400 /etc/ssl/private/apache-selfsigned.key
-chmod 444 /etc/ssl/certs/apache-selfsigned.crt
+sudo openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout /etc/ssl/private/apache-selfsigned.key -out /etc/ssl/certs/apache-selfsigned.crt -config ./openssl.cnf
 
 sudo systemctl restart httpd
 
